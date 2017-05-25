@@ -1,0 +1,15 @@
+.menu-toggle{
+  &.active{
+    transform: rotate(90deg);
+  }
+  transition: all 0.2s ease;
+}
+
+.portrait {
+  font-size: 36px;
+  width: 100%;
+}
+
+h1 {
+  font-size: 23px;
+}

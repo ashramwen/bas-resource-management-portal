@@ -1,0 +1,52 @@
+@import './pages/+portal/portal.component';
+@import '../styles/index.scss';
+
+@mixin app-theme($theme) {
+  app {
+    main {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+
+      .loading-overlay {
+        position: relative;
+        width: 100%;
+        z-index: 9999;
+      }
+      .main-content {
+        flex: 1;
+        position: relative;
+        height: 100%;
+      }
+      footer {
+        text-align: center;
+        font-size: 13px;
+        height: 26px;
+        line-height: 26px;
+        border-top: 1px solid #ccc;
+      }
+
+      .app-spinner-container {
+        background: rgba(255, 255, 255, 0.3);
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        right: 0px;
+        bottom: 0px;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        z-index: 1;
+        md-spinner {
+          width: 3rem;
+          height: 3rem;
+        }
+      }
+    }
+  }
+
+  @include portal-theme($theme);
+}
+
+@include app-theme($theme);

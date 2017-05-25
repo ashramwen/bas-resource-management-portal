@@ -1,0 +1,22 @@
+<swipe-wrapper [index]="swipeTabIndex$ | async">
+  <swipe-tab>
+    <cm-portal-layout 
+      (toggleSidenav)="toggleSidenav()" 
+      [showSidenav]="showSidenav$ | async"
+      [rootSection]="rootSection"
+      [loading]="loading$ | async"
+    >
+      <div portal-toolbar>
+        <bas-toolbar (showUser)="showUserInfo()">
+          BAS
+        </bas-toolbar>
+      </div>
+      <div portal-content>
+        <router-outlet role="main"></router-outlet>
+      </div>
+    </cm-portal-layout>
+  </swipe-tab>
+  <swipe-tab activeClass="user-info">
+    <user-info></user-info>
+  </swipe-tab>
+</swipe-wrapper>

@@ -1,0 +1,54 @@
+<div fxLayout="row" fxLayoutAlign="space-between center">
+  <div fxFlex></div>
+  <div fxFlex class="text-center">
+    <md-button-toggle-group #group="mdButtonToggleGroup">
+      <md-button-toggle value="left" (click)="view = 'month'" [checked]="view === 'month'">Month</md-button-toggle>
+      <md-button-toggle value="center" (click)="view = 'week'" [checked]="view === 'week'">Week</md-button-toggle>
+      <md-button-toggle value="right" (click)="view = 'day'" [checked]="view === 'day'">Day</md-button-toggle>
+    </md-button-toggle-group>
+  </div>
+  <div fxFlex class="text-right">
+    <button md-raised-button color="primary" mwlCalendarToday [(viewDate)]="viewDate">Today</button>
+  </div>
+</div>
+<div fxLayout="row" fxLayoutAlign="space-between center">
+  <button md-button mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate"><md-icon>keyboard_arrow_left</md-icon></button>
+  <h3 class="text-center">{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h3>
+  <button md-button mwlCalendarNextView [view]="view" [(viewDate)]="viewDate"><md-icon>keyboard_arrow_right</md-icon></button>
+</div>
+<div [ngSwitch]="view">
+  <mwl-calendar-month-view *ngSwitchCase="'month'" [cellTemplate]="monthCellTemplate" [viewDate]="viewDate" [events]="events"
+    [refresh]="refresh" [activeDayIsOpen]="activeDayIsOpen" (dayClicked)="dayClicked($event.day)" (eventClicked)="handleEvent('Clicked', $event.event)"
+    (eventTimesChanged)="eventTimesChanged($event)">
+  </mwl-calendar-month-view>
+  <mwl-calendar-week-view *ngSwitchCase="'week'" [viewDate]="viewDate" [events]="events" [refresh]="refresh" (eventClicked)="handleEvent('Clicked', $event.event)"
+    (eventTimesChanged)="eventTimesChanged($event)">
+  </mwl-calendar-week-view>
+  <mwl-calendar-day-view *ngSwitchCase="'day'" [viewDate]="viewDate" [events]="events" [refresh]="refresh" (eventClicked)="handleEvent('Clicked', $event.event)"
+    (eventTimesChanged)="eventTimesChanged($event)">
+  </mwl-calendar-day-view>
+</div>
+
+<ng-template #monthCellTemplate let-day="day" let-openDay="openDay" let-locale="locale" let-tooltipPlacement="tooltipPlacement"
+  let-highlightDay="highlightDay" let-unhighlightDay="unhighlightDay" let-eventClicked="eventClicked">
+
+  <div class="cal-cell" [mdMenuTriggerFor]="menu">
+    <div class="cal-cell-top">
+      <span class="cal-day-badge" *ngIf="day.badgeTotal > 0">{{ day.badgeTotal }}</span>
+      <span class="cal-day-number">{{ day.date | calendarDate:'monthViewDayNumber':locale }}</span>
+    </div>
+    <div class="cal-events">
+      <div class="cal-event" *ngFor="let event of day.events" [style.backgroundColor]="event.color.primary" [ngClass]="event?.cssClass"
+        (mouseenter)="highlightDay.emit({event: event})" (mouseleave)="unhighlightDay.emit({event: event})" [mwlCalendarTooltip]="event.title | calendarEventTitle:'monthTooltip':event"
+        [tooltipPlacement]="tooltipPlacement" (click)="$event.stopPropagation(); eventClicked.emit({event: event})">
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<md-menu #menu="mdMenu" xPosition="before" yPosition="below">
+  <button md-menu-item>
+    <md-icon>event_note</md-icon>
+    <span>Add event</span>
+  </button>
+</md-menu>

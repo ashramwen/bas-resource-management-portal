@@ -1,0 +1,23 @@
+.top-bar{
+  height: 40px;
+  .back{
+    color:#fff;
+    font-size: 32px;
+    width: 100%;
+  }
+}
+.info-container{
+  display: flex;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-80px, -80%);
+  color: #fff;
+  md-icon{
+    width: 40px;
+    height: 40px;
+    font-size: 28px;
+    text-align: center;
+    line-height: 40px;
+  }
+}

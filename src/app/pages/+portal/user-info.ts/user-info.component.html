@@ -1,0 +1,27 @@
+<div class="top-bar">
+  <button md-icon-button (click)="goMain()">
+    <md-icon class="back">arrow_back</md-icon>
+  </button>
+</div>
+<div class="info-container">
+  <div class="info-wrapper">
+    <div>
+      <button md-icon-button (click)="logout()">
+        <md-icon class="sign-out">power_settings_new</md-icon>
+        {{'UserInfo.Logout' | translate}}
+      </button>
+    </div>
+    <div>
+      <button md-icon-button (click)="openChangePasswordDialog()">
+        <md-icon class="change-password">lock_open</md-icon>
+        {{'UserInfo.ChangePassword' | translate}}
+      </button>
+    </div>
+    <div>
+      <button md-icon-button (click)="refreshLocalData()">
+        <md-icon class="change-password">refresh</md-icon>
+        Refresh Local Data
+      </button>
+    </div>
+  </div>
+</div>

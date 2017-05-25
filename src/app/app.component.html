@@ -1,0 +1,13 @@
+<main>
+  <div class="main-content">
+    <router-outlet></router-outlet>
+  </div>
+  <!--<footer>
+    <span>Powered by <a [href]="url">@KiiCorp CN</a> - frontend Team</span>
+  </footer>-->
+  <div class="app-spinner-container" *ngIf="showAppLoader$ | async">
+    <md-spinner></md-spinner>
+  </div>
+</main>
+
+<!--<ngrx-store-log-monitor toggleCommand="ctrl-h" positionCommand="ctrl-m"></ngrx-store-log-monitor>-->

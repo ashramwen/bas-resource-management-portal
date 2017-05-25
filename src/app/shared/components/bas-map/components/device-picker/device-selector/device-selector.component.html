@@ -1,0 +1,18 @@
+<md-list class="location-list sm">
+  <md-list-item>
+    <div fxLayout full-width>
+      <md-checkbox #check>
+        All
+      </md-checkbox>
+      <div fxFlex="100%" text-right class="device-name">
+        Device ID
+      </div>
+    </div>
+  </md-list-item>
+  <md-divider></md-divider>
+</md-list>
+<md-list class="location-list sm">
+  <md-list-item *ngFor="let device of devices" >
+    <device-selector-item [device]="device"></device-selector-item>
+  </md-list-item>
+</md-list>

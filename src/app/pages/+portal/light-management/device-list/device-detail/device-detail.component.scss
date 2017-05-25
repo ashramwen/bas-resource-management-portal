@@ -1,0 +1,73 @@
+.info-container {
+  margin-top: 30px;
+  display: flex;
+  flex-flow: row;
+  .info {
+    flex: 4;
+    background: #fff;
+    padding: 20px 30px;
+    border: 1px solid #ebebeb;
+    font-size: 13px;
+    md-icon {
+      vertical-align: middle;
+      margin-right: 20px;
+    }
+    & > section {
+      display: flex;
+      align-content: center;
+      align-items: center;
+      height: 40px;
+      line-height: 40px;
+      padding: 5px 0;
+      & > label {
+        min-width: 135px;
+        border-right: 1px solid #dbdbdb;
+        margin-right: 40px;
+      }
+      & > section {
+        display: flex;
+        & > label {
+          width: 100%;
+          margin-right: 20px;
+          border: 0;
+        }
+      }
+    }
+  }
+  .switch {
+    flex: 1;
+    min-width: 5rem;
+    background: #fff;
+    margin-left: 20px;
+    border: 1px solid #ebebeb;
+  }
+}
+
+md-tab-group{
+  margin-top: 1rem;
+  table {
+    width: 100%;
+    padding: 20px;
+    border-collapse: collapse;
+    border: 1px solid #ebebeb;
+    background: #fff;
+    color: #31384a;
+    font-size: 13px;
+    font-weight: normal;
+    th {
+      font-size: 16px;
+      padding: .85rem 1.2rem;
+      background: #f5f5f5;
+      font-size: 13px;
+      font-weight: normal;
+    }
+    td {
+      font-size: 14px;
+      text-align: center;
+      padding: .85rem 1.2rem;
+    }
+    tbody tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+  }
+}

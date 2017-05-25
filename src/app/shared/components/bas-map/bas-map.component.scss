@@ -1,0 +1,49 @@
+@import './leaflet-plugins/back-button/back-button.control.scss';
+@import './leaflet-plugins/selection-button/selection-button.control.scss';
+
+.bas-map-container {
+  width: 100%;
+  height: 100%;
+
+  .location-picker{
+    z-index: 3;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    padding: 10px;
+  }
+}
+
+.device-icon {
+  background:transparent;
+  border: none;
+  svg{
+    path{
+    }
+  }
+}
+
+svg{
+  path.loc-layer{
+    fill: grey;
+    opacity: 0.8;
+
+    &:hover, &.active{
+      fill: red;
+      stroke-width: 5;
+    }
+    &.fade{
+      opacity: 0.3;
+    }
+    &.selected{
+      fill: green;
+      opacity: 0.8 !important;
+    }
+    &.hide{
+      display: none;
+    }
+    &.disabled{
+      pointer-events: none !important;
+    }
+  }
+}

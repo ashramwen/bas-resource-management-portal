@@ -1,0 +1,20 @@
+export const RESOURCE_URLS = {
+  AUTH: '/oauth2',
+  ES: '/es',
+  LOCATION_TAGS: '/locationTags',
+  ONBOARDING: '/onboardinghelper',
+  PERMISSION: '/permission',
+  REPORTS: '/reports',
+  SCHEMA: '/schema',
+  SUPPLIER: '/devicesuppliers',
+  SYSTEM_PERMISSION: '/sys/permissionTree',
+  TAG: '/tags',
+  THING: '/things',
+  THING_IF: '/thing-if',
+  TRIGGER: '/triggers',
+  TYPE: '/things/types',
+  USER: '/users',
+  USER_GROUP: '/usergroup',
+  USER_MANAGER: '/usermanager',
+  USER_SYNC: '/usersync'
+};

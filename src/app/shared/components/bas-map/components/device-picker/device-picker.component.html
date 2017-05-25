@@ -1,0 +1,57 @@
+<md-card class="location-selector-toggle" [@flyInOut]="active? 'active': 'inactive'">
+  <md-card-content>
+    <div><md-checkbox [(ngModel)]="isLocationSelector" [disabled]="isCascade">select location</md-checkbox></div>
+  </md-card-content>
+</md-card>
+<md-card class="device-picker" [@flyInOut]="active? 'active': 'inactive'">
+  <md-card-content>
+    <md-tab-group full-ink-bar>
+      <md-tab label="Controls">
+        <div class="tab-container">
+          <md-list>
+            <md-list-item>
+              <p md-line>
+                Smart Control
+              </p>
+              <md-slide-toggle></md-slide-toggle>
+            </md-list-item>
+            <md-list-item  class="title-row">
+              Power
+            </md-list-item>
+            <md-list-item class="list-row" fxLayout fxLayoutAlign="center stretch">
+              <div fxLayout fxLayoutAlign="space-between stretch" full-width>
+                <button md-raised-button>ON</button>
+                <button md-raised-button>OFF</button>
+              </div>
+            </md-list-item>
+             <md-list-item  class="title-row">
+              <p md-line fxLayout fxLayoutAlign="space-between stretch">
+                <span>Brightness</span>
+                <span></span>
+              </p>
+            </md-list-item>
+            <md-list-item class="list-row">
+              <md-slider fxFlexFill></md-slider>
+            </md-list-item>
+            <md-list-item class="title-row">
+              <p md-line fxLayout fxLayoutAlign="space-between stretch">
+                <span>Profiles</span>
+                <md-icon color="primary">add_box</md-icon>
+              </p>
+            </md-list-item>
+            <md-list-item class="list-row">
+              <div class="profile-item" full-width>Profile</div>
+            </md-list-item>
+
+          </md-list>
+        </div>
+      </md-tab>
+      <md-tab label="Selection" color="primary">
+        <div class="tab-container">
+          <bm-device-seletor *ngIf="!isLocationSelector"></bm-device-seletor>
+          <bm-location-selector *ngIf="isLocationSelector" [locations]="locations"></bm-location-selector>
+        </div>
+      </md-tab>
+    </md-tab-group>
+  </md-card-content>
+</md-card>

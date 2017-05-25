@@ -1,0 +1,13 @@
+{
+  "Home": {
+    "Logout": "登出",
+    "Login": "登入",
+    "Welcome": "欢迎"
+  },
+  "DeviceList": {
+    "DeviceDetail": {
+      "ControlHistory": "控制历史",
+      "StateHistory": "状态历史"
+    }
+  }
+}

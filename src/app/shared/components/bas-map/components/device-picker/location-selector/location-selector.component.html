@@ -1,0 +1,25 @@
+<md-list class="location-list sm">
+  <md-list-item>
+    <div fxLayout full-width>
+      <div fxFlex="100%" class="location-name">
+        <md-icon class="light-icon" color="accent">location_on</md-icon>
+        <div fxFlex="100%" class="device-name">
+          Location
+        </div>
+      </div>
+    </div>
+  </md-list-item>
+  <md-divider></md-divider>
+</md-list>
+
+<md-list class="location-list sm">
+  <md-list-item *ngFor="let location of locations" >
+    <label fxLayout full-width>
+      <md-icon class="light-icon" color="accent">location_on</md-icon>
+      <div fxFlex="100%" class="device-name">
+        {{location | location | async}}
+      </div>
+      <md-icon color="warn" (click)="remove(location)">clear</md-icon>
+    </label>
+  </md-list-item>
+</md-list>

@@ -1,0 +1,50 @@
+{
+  "location": {
+    "area": "Room{{value}}",
+    "floor": "F{{value}}",
+    "building": "B{{value}}",
+    "partition": "P{{value}}",
+    "empty": "",
+    "position": "p{{value}}"
+  },
+  "controls": {
+    "submit": "Submit",
+    "ok": "Ok",
+    "cancel": "Cancel"
+  },
+  "Login": {
+    "Username": "Username",
+    "Password": "Password",
+    "userNamePasswordNotMatch": "Username and Password Not Matching!"
+  },
+  "Home": {
+    "Logout": "Logout",
+    "Login": "Log in",
+    "Welcome": "Welcome"
+  },
+  "UserInfo": {
+    "Logout": "Sign out",
+    "ChangePassword": "Change Password",
+    "CurrentPassword": "Current Password",
+    "NewPassword": "New Password",
+    "ConfirmPassword": "Comfirm Passwrod",
+    "errors": {
+      "passwordRequired": "Password cannot be empty.",
+      "newPasswordRequired": "New Password cannot be empty.",
+      "passwordConfirm": "New Password not match!"
+    }
+  },
+  "DeviceList": {
+    "Info": "Info",
+    "DeviceID": "Device ID",
+    "Location": "Location",
+    "Connectivity": "Connectivity",
+    "LatestStatus": "Latest Status",
+    "DeviceDetail": {
+      "Profile": "Profile",
+      "CommandHistory": "Command History",
+      "StateHistory": "State History",
+      "Alert": "Alert"
+    }
+  }
+}

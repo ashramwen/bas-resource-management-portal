@@ -1,0 +1,89 @@
+<cm-content-container>
+  <cm-toolbar-sub-title subTitle="Light Management"></cm-toolbar-sub-title>
+  <div class="container">
+    <div class="flex-row" fxLayout="row" fxLayoutAlign="center">
+      <div fxFlex class="flex-box">
+        <md-card class="bas-card purple">
+          <i class="material-icons">brightness_high</i>
+          <md-card-content class="white text-center">
+            <md-card-title>
+              <h1>{{ numberOfPowerOn }}</h1>
+            </md-card-title>
+            <md-card-subtitle>
+              <h2 class="subtitle">POWER ON</h2>
+            </md-card-subtitle>
+          </md-card-content>
+          <md-card-footer>
+            <md-grid-list cols="2" rowHeight="80px">
+              <md-grid-tile>YESTERDAY</md-grid-tile>
+              <md-grid-tile><span><strong>{{ numberOfYesterday | number:'.0-0' }}</strong> mins</span></md-grid-tile>
+            </md-grid-list>
+          </md-card-footer>
+        </md-card>
+      </div>
+
+      <div fxFlex class="flex-box">
+        <md-card class="bas-card cyan">
+          <i class="material-icons">lightbulb_outline</i>
+          <md-card-content class="white text-center">
+            <md-card-title>
+              <h1>{{ numberOfConnected }} / {{ thingIDs.length }}</h1>
+            </md-card-title>
+            <md-card-subtitle>
+              <h2 class="subtitle">CONNECTED</h2>
+            </md-card-subtitle>
+          </md-card-content>
+          <md-card-footer>
+            <md-grid-list cols="2" rowHeight="80px">
+              <md-grid-tile>HISTORY</md-grid-tile>
+              <md-grid-tile><span><strong>{{ avgOfHistory | number:'.0-0' }}</strong> mins</span></md-grid-tile>
+            </md-grid-list>
+          </md-card-footer>
+        </md-card>
+      </div>
+
+      <div fxFlex class="flex-box">
+        <md-card class="bas-card">
+          <md-card-header>
+            <md-card-title>
+              <h2>Top 10 Usage</h2>
+            </md-card-title>
+          </md-card-header>
+          <md-card-content>
+            <md-grid-list cols="4" rowHeight="36px">
+              <md-grid-tile></md-grid-tile>
+              <md-grid-tile>DEVICE ID</md-grid-tile>
+              <md-grid-tile>LOCATION</md-grid-tile>
+              <md-grid-tile>TIMES</md-grid-tile>
+            </md-grid-list>
+            <div class="top-list">
+              <md-grid-list cols="4" *ngFor="let thing of top10; let i = index" rowHeight="50px">
+                <md-grid-tile>
+                  <div class="rank rank-{{i}}">{{ i + 1}}</div>
+                </md-grid-tile>
+                <md-grid-tile>{{ thing.vendorThingID }}</md-grid-tile>
+                <md-grid-tile>{{ thing.vendorThingID | slice:0:4 }}</md-grid-tile>
+                <md-grid-tile>{{ thing.doc_count| number:'.0-0' }}</md-grid-tile>
+              </md-grid-list>
+            </div>
+          </md-card-content>
+        </md-card>
+      </div>
+    </div>
+
+    <div class="flex-row" fxLayout="row" fxLayoutAlign="center">
+      <div fxFlex class="flex-box">
+        <md-card>
+          <md-card-header>
+            <md-card-title>
+              <h2>NUMBER OF TIMES</h2>
+            </md-card-title>
+          </md-card-header>
+          <md-card-content>
+            <punch-card [data]="punchData"></punch-card>
+          </md-card-content>
+        </md-card>
+      </div>
+    </div>
+  </div>
+</cm-content-container>

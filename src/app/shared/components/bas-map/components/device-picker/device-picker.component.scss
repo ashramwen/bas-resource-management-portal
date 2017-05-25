@@ -1,0 +1,54 @@
+
+bm-device-picker {
+  .tab-container{
+    min-height: 10rem;
+    padding-bottom: 1rem;
+    max-height: 20rem;
+    overflow: auto;
+  }
+
+  md-card.location-selector-toggle{
+    z-index: 3;
+    position: absolute;
+    top: 1rem;
+    right: 20px;
+    padding: 0px;
+    width: 14rem;
+    padding: 1rem;
+  }
+
+  md-card.device-picker{
+    z-index: 3;
+    position: absolute;
+    top: 5rem;
+    right: 20px;
+    padding: 0px;
+  }
+
+
+  .profile-item{
+    border: solid 1px #00b4ff;
+    background: lighten(#00b4ff, 30%);
+    text-align: center;
+    color: #2ca1f4;
+    height: 2.4rem;
+    line-height: 2.4rem;
+    font-size: 0.825rem;
+  }
+
+  md-list-item.list-row{
+    & > .mat-list-item-content{
+      flex: 1;
+    }
+  }
+  md-list-item.title-row {
+    & > .mat-list-item-content{
+      // height: 2.5rem;
+    }
+  }
+  md-list-item {
+    & > .mat-list-item-content{
+      font-size: 0.825rem !important;
+    }
+  }
+}

@@ -1,0 +1,24 @@
+.bm-back-button{
+  background: transparent;
+  outline: none;
+  margin: 0px;
+  display: block;
+  width: 50px;
+  height: 50px;
+  line-height: 53px;
+  padding: 0px;
+  padding-top: 2px;
+  border-radius: 100%;
+  border: solid 3px #fff;
+  text-align: center;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: all 0.2s;
+  &:hover{
+    opacity: 1;
+  }
+  .md-icon {
+    color: #fff;
+    font-size: 40px;
+  }
+}
