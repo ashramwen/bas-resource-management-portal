@@ -1,0 +1,10 @@
+@import '~@angular/material/_theming';
+
+@mixin swipe-wrapper-theme($theme){
+  $primary: map-get($theme, primary);
+  swipe-wrapper{
+    .portal-wrapper.user-info {
+      background-color: mat-color($primary) !important;
+    }
+  }
+}

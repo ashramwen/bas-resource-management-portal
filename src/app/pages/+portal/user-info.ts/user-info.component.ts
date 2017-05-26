@@ -40,6 +40,10 @@ export class UserInfoCmp {
             resolve();
           });
         });
+      },
+      confirmConfig: {
+        okText: 'Ok',
+        cancelText: 'Cancel'
       }
     });
 
@@ -64,6 +68,10 @@ export class UserInfoCmp {
   public refreshLocalData() {
     let result = this.confirm.open({
       message: `Are you sure to refresh data?`,
+      confirmConfig: {
+        okText: 'Ok',
+        cancelText: 'Cancel'
+      }
     });
 
     result.ok.subscribe(async () => {

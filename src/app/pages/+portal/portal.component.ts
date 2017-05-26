@@ -20,6 +20,7 @@ import { createSelector } from 'reselect';
 @Component({
   selector: 'bas-portal',
   templateUrl: './portal.component.html',
+  styleUrls: ['./portal.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class PortalCmp {
