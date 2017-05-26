@@ -3441,9 +3441,9 @@ karma@^1.4.1, karma@^1.7.0:
     tmp "0.0.31"
     useragent "^2.1.12"
 
-kii-universal-ui@0.0.14:
-  version "0.0.14"
-  resolved "http://registry.npm.taobao.org/kii-universal-ui/download/kii-universal-ui-0.0.14.tgz#1617ddef5e90ff2cf4bac65d2a305ec51054c114"
+kii-universal-ui@0.0.20:
+  version "0.0.20"
+  resolved "http://registry.npm.taobao.org/kii-universal-ui/download/kii-universal-ui-0.0.20.tgz#e65b4608cecc59e3eddc6ae03f769bfd83b1ff84"
   dependencies:
     "@angular/animations" "^4.0.3"
     "@angular/common" "^4.0.3"
