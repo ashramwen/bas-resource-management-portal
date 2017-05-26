@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Http, HttpModule } from '@angular/http';
-import { MaterialRootModule, OverlayContainer } from '@angular/material';
+import { OverlayContainer, MaterialModule } from '@angular/material';
 import {
   PreloadAllModules,
   RouterModule,
@@ -63,7 +63,7 @@ const APP_PROVIDERS = [
     BrowserModule,
     FormsModule,
     HttpModule,
-    MaterialRootModule,
+    MaterialModule,
     ReactiveFormsModule,
     // have to comment this line when build:aot:prod
     // instrumentation,

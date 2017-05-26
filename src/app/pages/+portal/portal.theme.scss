@@ -1,0 +1,6 @@
+@import '~@angular/material/_theming';
+@import './components/swipe-wrapper/swipe-tab.theme';
+
+@mixin portal-theme($theme) {
+  @include swipe-wrapper-theme($theme);
+}

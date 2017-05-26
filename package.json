@@ -101,7 +101,7 @@
     "hammerjs": "^2.0.8",
     "http-server": "^0.9.0",
     "ie-shim": "^0.1.0",
-    "kii-universal-ui": "0.0.11",
+    "kii-universal-ui": "0.0.14",
     "leaflet": "^1.0.3",
     "leaflet-compass": "^1.4.1",
     "lodash": "^4.17.4",

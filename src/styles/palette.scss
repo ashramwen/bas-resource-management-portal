@@ -1,6 +1,6 @@
 @import '~@angular/material/theming';
 
-$app-primary: (
+$app-accent: (
   50:	#f4f8f9,
   100: #e9f4fa,
   200:	#d7dadb,
@@ -37,7 +37,7 @@ $app-primary: (
   )
 );
 
-$app-accent: (
+$app-primary: (
   50: #f7c65f,
   100: #f3aa12,
   200: #fcc62b,

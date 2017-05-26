@@ -3441,9 +3441,9 @@ karma@^1.4.1, karma@^1.7.0:
     tmp "0.0.31"
     useragent "^2.1.12"
 
-kii-universal-ui@0.0.11:
-  version "0.0.11"
-  resolved "http://registry.npm.taobao.org/kii-universal-ui/download/kii-universal-ui-0.0.11.tgz#b343392df924b2585c8e71319398c36e8561ad0e"
+kii-universal-ui@0.0.14:
+  version "0.0.14"
+  resolved "http://registry.npm.taobao.org/kii-universal-ui/download/kii-universal-ui-0.0.14.tgz#1617ddef5e90ff2cf4bac65d2a305ec51054c114"
   dependencies:
     "@angular/animations" "^4.0.3"
     "@angular/common" "^4.0.3"
@@ -3798,11 +3798,7 @@ lowercase-keys@^1.0.0:
   version "1.0.0"
   resolved "http://registry.npm.taobao.org/lowercase-keys/download/lowercase-keys-1.0.0.tgz#4e3366b39e7f5457e35f1324bdf6f88d0bfc7306"
 
-lru-cache@2:
-  version "2.7.3"
-  resolved "http://registry.npm.taobao.org/lru-cache/download/lru-cache-2.7.3.tgz#6d4524e8b955f95d4f5b58851ce21dd72fb4e952"
-
-lru-cache@2.2.x:
+lru-cache@2, lru-cache@2.2.x:
   version "2.2.4"
   resolved "http://registry.npm.taobao.org/lru-cache/download/lru-cache-2.2.4.tgz#6c658619becf14031d0d0b594b16042ce4dc063d"
 
