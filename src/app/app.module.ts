@@ -7,7 +7,6 @@ import {
 } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Http, HttpModule } from '@angular/http';
-import { MaterialRootModule, OverlayContainer } from '@angular/material';
 import {
   PreloadAllModules,
   RouterModule,
@@ -30,14 +29,16 @@ import { BrowserModule } from '@angular/platform-browser';
  */
 import { ENV_PROVIDERS } from './environment';
 import { LocalStorageModule } from 'angular-2-local-storage';
+import { LoginModule } from './pages/login/login.module';
 import { MatCustomModule } from 'kii-universal-ui';
+import { MaterialModule } from './shared/material.module';
+import { OverlayContainer } from '@angular/material';
 import { PortalModule } from './pages/+portal/portal.module';
 import { ROUTES } from './app.routes';
 import { StoreLogMonitorModule } from '@ngrx/store-log-monitor';
 import { StoreModule } from '@ngrx/store';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { instrumentation } from './shared/redux/index';
-import { LoginModule } from './pages/login/login.module';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: Http) {
@@ -63,7 +64,7 @@ const APP_PROVIDERS = [
     BrowserModule,
     FormsModule,
     HttpModule,
-    MaterialRootModule,
+    MaterialModule,
     ReactiveFormsModule,
     // have to comment this line when build:aot:prod
     // instrumentation,
