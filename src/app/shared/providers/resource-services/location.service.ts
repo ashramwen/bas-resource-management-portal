@@ -8,6 +8,7 @@ import { LOCATION_STORAGE } from '../../orm/services/syncronize.service';
 export class LocationService {
 
   private _locations: Location[];
+  private _root: Location;
 
   constructor(
     private _orm: BasORM
@@ -22,13 +23,16 @@ export class LocationService {
       Object.assign(location, r);
       return location;
     });
-    let root = await this.root;
-    root.subLocations = [];
-    this._buildTree(root, this._locations.slice(1, this._locations.length));
+    this._root = await this.getLocation('.');
+    if (!this._root) {
+      return;
+    }
+    this._root.subLocations = [];
+    this._buildTree(this._root, this._locations.slice(1, this._locations.length));
   }
 
   public get root() {
-    return this.getLocation('.');
+    return this._root;
   }
 
   public async getDescendants(location: string) {

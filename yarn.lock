@@ -464,6 +464,13 @@ ajv-keywords@^1.1.1:
   version "1.5.1"
   resolved "http://registry.npm.taobao.org/ajv-keywords/download/ajv-keywords-1.5.1.tgz#314dd0a4b3368fad3dfcdc54ede6171b886daf3c"
 
+ajv@4.11.6:
+  version "4.11.6"
+  resolved "http://registry.npm.taobao.org/ajv/download/ajv-4.11.6.tgz#947e93049790942b2a2d60a8289b28924d39f987"
+  dependencies:
+    co "^4.6.0"
+    json-stable-stringify "^1.0.1"
+
 ajv@^4.11.2, ajv@^4.7.0, ajv@^4.9.1:
   version "4.11.8"
   resolved "http://registry.npm.taobao.org/ajv/download/ajv-4.11.8.tgz#82ffb02b29e662ae53bdc20af15947706739c536"
@@ -923,6 +930,12 @@ brace-expansion@^1.1.7:
   dependencies:
     balanced-match "^0.4.1"
     concat-map "0.0.1"
+
+brace@0.10.0:
+  version "0.10.0"
+  resolved "http://registry.npm.taobao.org/brace/download/brace-0.10.0.tgz#edef4eb9b0928ba1ee5f717ffc157749a6dd5d76"
+  dependencies:
+    w3c-blob "0.0.1"
 
 braces@^0.1.2:
   version "0.1.5"
@@ -3275,6 +3288,10 @@ jasminewd2@0.0.10:
   version "0.0.10"
   resolved "http://registry.npm.taobao.org/jasminewd2/download/jasminewd2-0.0.10.tgz#94f48ae2bc946cad643035467b4bb7ea9c1075ef"
 
+javascript-natural-sort@0.7.1:
+  version "0.7.1"
+  resolved "http://registry.npm.taobao.org/javascript-natural-sort/download/javascript-natural-sort-0.7.1.tgz#f9e2303d4507f6d74355a73664d1440fb5a0ef59"
+
 jodid25519@^1.0.0:
   version "1.0.2"
   resolved "http://registry.npm.taobao.org/jodid25519/download/jodid25519-1.0.2.tgz#06d4912255093419477d425633606e0e90782967"
@@ -3340,6 +3357,14 @@ json3@3.3.2, json3@^3.3.2:
 json5@^0.5.0, json5@^0.5.1:
   version "0.5.1"
   resolved "http://registry.npm.taobao.org/json5/download/json5-0.5.1.tgz#1eade7acc012034ad84e2396767ead9fa5495821"
+
+jsoneditor@^5.5.9:
+  version "5.7.0"
+  resolved "http://registry.npm.taobao.org/jsoneditor/download/jsoneditor-5.7.0.tgz#a44545c8ae60d948189295fdf26eb90e754b8eef"
+  dependencies:
+    ajv "4.11.6"
+    brace "0.10.0"
+    javascript-natural-sort "0.7.1"
 
 jsonfile@^2.1.0, jsonfile@^2.4.0:
   version "2.4.0"
@@ -3441,9 +3466,9 @@ karma@^1.4.1, karma@^1.7.0:
     tmp "0.0.31"
     useragent "^2.1.12"
 
-kii-universal-ui@0.0.20:
-  version "0.0.20"
-  resolved "http://registry.npm.taobao.org/kii-universal-ui/download/kii-universal-ui-0.0.20.tgz#e65b4608cecc59e3eddc6ae03f769bfd83b1ff84"
+kii-universal-ui@0.0.24:
+  version "0.0.24"
+  resolved "http://registry.npm.taobao.org/kii-universal-ui/download/kii-universal-ui-0.0.24.tgz#67519fa8ff520c6e77671ce9c51d105495a2bdd8"
   dependencies:
     "@angular/animations" "^4.0.3"
     "@angular/common" "^4.0.3"
@@ -4010,6 +4035,12 @@ ng-router-loader@^2.1.0:
   dependencies:
     loader-utils "^0.2.16"
     recast "^0.11.20"
+
+ng2-jsoneditor@^0.1.0:
+  version "0.1.0"
+  resolved "http://registry.npm.taobao.org/ng2-jsoneditor/download/ng2-jsoneditor-0.1.0.tgz#e67bc01f7bb3aa47db434c64e84a2c0bad10371c"
+  dependencies:
+    jsoneditor "^5.5.9"
 
 ngc-webpack@^2.0.0:
   version "2.0.0"
@@ -6242,6 +6273,10 @@ vm-browserify@0.0.4:
 void-elements@^2.0.0:
   version "2.0.1"
   resolved "http://registry.npm.taobao.org/void-elements/download/void-elements-2.0.1.tgz#c066afb582bb1cb4128d60ea92392e94d5e9dbec"
+
+w3c-blob@0.0.1:
+  version "0.0.1"
+  resolved "http://registry.npm.taobao.org/w3c-blob/download/w3c-blob-0.0.1.tgz#b0cd352a1a50f515563420ffd5861f950f1d85b8"
 
 watchpack@^1.3.1:
   version "1.3.1"

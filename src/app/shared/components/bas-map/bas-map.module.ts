@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BasMap } from './bas-map.component';
-import { MaterialModule } from '@angular/material';
 import { DevicePickerCmp } from './components/device-picker/device-picker.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -14,6 +13,7 @@ import {
 } from './components/device-picker/location-selector/location-selector.component';
 import { PipesModule } from '../../pipes/pipes.module';
 import { MapViewModule } from '../map-view/map-view.mdoule';
+import { MatCustomModule } from 'kii-universal-ui';
 import {
   DeviceSelectorItemCmp
 } from './components/device-picker/device-selector/device-selector-item.component';
@@ -28,12 +28,12 @@ import {
     DeviceSelectorItemCmp
   ],
   imports: [
-    MaterialModule,
     CommonModule,
     FormsModule,
     FlexLayoutModule,
     PipesModule,
-    MapViewModule
+    MapViewModule,
+    MatCustomModule,
   ],
   providers: [],
   exports: [BasMap]

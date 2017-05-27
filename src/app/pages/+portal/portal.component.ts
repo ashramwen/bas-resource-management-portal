@@ -51,6 +51,10 @@ export class PortalCmp {
         path: 'profile/calendar',
         text: 'Calendar',
       }]
+    }, {
+      icon: 'map',
+      path: 'location-management',
+      text: '位置管理',
     }]
   };
 

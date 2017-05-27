@@ -7,7 +7,6 @@ import {
 } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Http, HttpModule } from '@angular/http';
-import { OverlayContainer, MaterialModule } from '@angular/material';
 import {
   PreloadAllModules,
   RouterModule,
@@ -63,7 +62,6 @@ const APP_PROVIDERS = [
     BrowserModule,
     FormsModule,
     HttpModule,
-    MaterialModule,
     ReactiveFormsModule,
     // have to comment this line when build:aot:prod
     // instrumentation,
@@ -81,7 +79,7 @@ const APP_PROVIDERS = [
       }
     }),
     // LocalizeRouterModule.forRoot(ROUTES), // localize router
-    RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules }),
+    RouterModule.forRoot(ROUTES, { useHash: false, preloadingStrategy: PreloadAllModules }),
 
     // app modules
     PortalModule,
@@ -98,7 +96,6 @@ export class AppModule {
 
   constructor(
     public appRef: ApplicationRef,
-    overlayContainer: OverlayContainer
   ) { }
 
 }

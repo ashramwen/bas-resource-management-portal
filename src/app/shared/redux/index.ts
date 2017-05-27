@@ -29,6 +29,7 @@ import { combineReducers } from '@ngrx/store';
 import { LayoutState, layoutReducer } from './layout';
 import { TokenState, TokenEffects, tokenReducer } from './token';
 import { globalReducer, GlobalState } from './global/reducer';
+import { LayoutEffects } from './layout/effects';
 
 const reducers = {
   token: tokenReducer,
@@ -38,7 +39,8 @@ const reducers = {
 };
 
 export const EFFECTS = [
-  EffectsModule.run(TokenEffects)
+  EffectsModule.run(TokenEffects),
+  EffectsModule.run(LayoutEffects)
 ];
 
 export interface RootState {

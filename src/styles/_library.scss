@@ -1,2 +1,23 @@
+@import './theme';
 @import '~leaflet/dist/leaflet.css';
 @import '~angular-calendar/scss/angular-calendar';
+@import '~jsoneditor/dist/jsoneditor.min.css';
+
+/**
+ * json editor custom theme
+ */
+json-editor {
+  div.jsoneditor-menu{
+    display: none;
+  }
+  div.jsoneditor {
+    border-color: map_get($primary, 500);
+  }
+  .ace-jsoneditor .ace_gutter{
+    background-color: map_get($primary, 500);
+    color: #fff;
+  }
+  .ace-jsoneditor .ace_gutter-active-line {
+    background-color: rgba(255,255,255,0.5);
+  }
+}

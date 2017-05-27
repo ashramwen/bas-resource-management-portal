@@ -8,6 +8,7 @@ import { MapViewCmp } from './map-view/map-view.component';
 import { PortalCmp } from './portal.component';
 import { lightManagementRoutes } from './light-management/light-management.routes';
 import { profileRoutes } from './profile/profile.routes';
+import { LocationManagementCmp } from './location-management/location-management.component';
 
 export const portalRoutes = [
   {
@@ -23,6 +24,9 @@ export const portalRoutes = [
       path: '',
       redirectTo: 'light-management',
       pathMatch: 'prefix',
+    }, {
+      path: 'location-management',
+      component: LocationManagementCmp
     }],
   },
 ];

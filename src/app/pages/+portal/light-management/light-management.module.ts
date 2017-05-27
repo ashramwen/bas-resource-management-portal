@@ -7,7 +7,6 @@ import { FormsModule } from '@angular/forms';
 import { LandingCmp } from './landing/landing.component';
 import { LandingService } from './landing/landing.service';
 import { MapViewCmp } from './map-view/map-view.component';
-import { MaterialModule } from '@angular/material';
 import { NgModule } from '@angular/core';
 import { PunchCardComponent } from './landing/punch-card/punch-card.component';
 import { RouterModule } from '@angular/router';
@@ -17,7 +16,6 @@ import { AppSharedModule } from '../../../shared/shared.module';
 
 @NgModule({
   imports: [
-    MaterialModule,
     FlexLayoutModule,
     CommonModule,
     FormsModule,
