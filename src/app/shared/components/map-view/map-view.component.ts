@@ -20,6 +20,9 @@ import { Observable } from 'rxjs/Observable';
 import { MarkerControlService } from './services/marker-control.service';
 import { Location } from '../../models/location.interface';
 import { BMThing } from './models/thing.interface';
+import { BMImageLayer } from './models/image-layer.interface';
+import { BMImage } from './models/image.interface';
+import { ImageLayerControlService } from './services/image-layer-control.service';
 
 @Component({
   selector: 'bm-map-view',
@@ -27,7 +30,11 @@ import { BMThing } from './models/thing.interface';
     <div class="bas-map-target" #mapTarget></div>
   `,
   styleUrls: ['./map-view.component.scss'],
-  providers: [LayerControlService, MarkerControlService]
+  providers: [
+    LayerControlService,
+    MarkerControlService,
+    ImageLayerControlService
+  ]
 })
 export class MapViewCmp implements OnInit, AfterViewInit {
   @Output()
@@ -60,21 +67,30 @@ export class MapViewCmp implements OnInit, AfterViewInit {
     this._devicesChanged.next(this._devices);
   }
 
+  @Input()
+  public set imageLayers(value: BMImage[]) {
+    this._images = value;
+    this._imagesChanged.next(this._images);
+  }
+
   @ViewChild('mapTarget')
   public mapTarget: ElementRef;
 
   private _locations: BMLocation[] = [];
   private _devices: BMThing[] = [];
+  private _images: BMImage[] = [];
   private _zoom: number;
   private _map: L.Map;
   private _mapInited: Subject<boolean> = new Subject();
   private _locationChanged: BehaviorSubject<BMLocation[]> = new BehaviorSubject<BMLocation[]>([]);
   private _devicesChanged: BehaviorSubject<BMThing[]> = new BehaviorSubject([]);
   private _mapViewChanged: BehaviorSubject<void> = new BehaviorSubject<void>(void 0);
+  private _imagesChanged: BehaviorSubject<BMImage[]> = new BehaviorSubject([]);
 
   constructor(
     private _layerControl: LayerControlService,
-    private _markerControl: MarkerControlService
+    private _markerControl: MarkerControlService,
+    private _imageLayerControl: ImageLayerControlService
   ) { }
 
   /**
@@ -101,6 +117,9 @@ export class MapViewCmp implements OnInit, AfterViewInit {
       });
       this._devicesChanged.subscribe((result) => {
         this._loadMarkers(result);
+      });
+      this._imagesChanged.subscribe((result) => {
+        this._loadImages(result);
       });
     });
   }
@@ -182,6 +201,10 @@ export class MapViewCmp implements OnInit, AfterViewInit {
     this._initMarkers(markers);
   }
 
+  private _loadImages(images: BMImage[]) {
+    this._imageLayerControl.loadImages(images, this._map);
+  }
+
   /**
    * update map view 
    * 
@@ -198,15 +221,6 @@ export class MapViewCmp implements OnInit, AfterViewInit {
       animate: true,
       duration: 1000
     });
-    // let mapBounds
-    //   = new L.LatLngBounds([
-    //     bounds.bottom + 0.001,
-    //     bounds.left - 0.001
-    //   ], [
-    //     bounds.top - 0.001,
-    //     bounds.right + 0.001
-    //   ]);
-    // this._map.setMaxBounds(mapBounds);
   }
 
   /**

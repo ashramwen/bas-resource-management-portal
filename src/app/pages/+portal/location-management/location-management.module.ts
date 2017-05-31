@@ -11,6 +11,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppSharedModule } from '../../../shared/shared.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { JSONEditorModule } from 'ng2-jsoneditor';
+import { BRAddSubLocationCmp } from './list-view/add-sublocation.component';
+import { BRLocationNavigatorCmp } from './map-view/components/location-selector.component';
 
 @NgModule({
   declarations: [
@@ -19,10 +21,14 @@ import { JSONEditorModule } from 'ng2-jsoneditor';
     BRLocationMapViewCmp,
     BRLocationListItemCmp,
     BRLocationEditorCmp,
+    BRAddSubLocationCmp,
+    BRLocationNavigatorCmp,
   ],
-  entryComponents: [BRLocationListItemCmp],
+  entryComponents: [
+    BRLocationListItemCmp,
+    BRAddSubLocationCmp
+  ],
   imports: [
-    MatCustomModule,
     SHARED_MODULES,
     CommonModule,
     FormsModule,

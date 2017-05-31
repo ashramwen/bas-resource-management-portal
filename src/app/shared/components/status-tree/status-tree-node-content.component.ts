@@ -30,9 +30,9 @@ import { StatusTreeNode } from './status-tree-node.interface';
   styleUrls: ['./status-tree-node-content.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class StatusTreeNodeContentComponent implements OnInit {
+export class StatusTreeNodeContentComponent<T> implements OnInit {
   @Input()
-  public node: StatusTreeNode;
+  public node: StatusTreeNode<T>;
 
   @Input()
   public componentType: any;
@@ -41,7 +41,7 @@ export class StatusTreeNodeContentComponent implements OnInit {
   public collapse: EventEmitter<boolean> = new EventEmitter();
 
   @Output()
-  public nodeClick: EventEmitter<StatusTreeNode> = new EventEmitter();
+  public nodeClick: EventEmitter<StatusTreeNode<T>> = new EventEmitter();
 
   @ViewChild('template', { read: ViewContainerRef })
   private template: ViewContainerRef;
@@ -58,10 +58,10 @@ export class StatusTreeNodeContentComponent implements OnInit {
   ) { }
 
   public ngOnInit() {
-    this._addCmp(this.componentType, this.node.data);
+    this._addCmp(this.componentType, this.node);
   }
 
-  private _addCmp<T>(cmpType: any, data?: any) {
+  private _addCmp<T>(cmpType: any, data?: StatusTreeNode<T>) {
     let componentFactory = this._cfr.resolveComponentFactory(cmpType);
     let valueProvider: ValueProvider = {
       provide: ComponentRef,
@@ -76,6 +76,6 @@ export class StatusTreeNodeContentComponent implements OnInit {
 
 export class ComponentRef<T> {
   constructor(
-    public data: T
+    public data: StatusTreeNode<T>
   ) { }
 }

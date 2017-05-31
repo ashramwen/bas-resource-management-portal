@@ -20,13 +20,13 @@ import { StatusTreeNode } from './status-tree-node.interface';
     ></sm-status-tree-node>
   `
 })
-export class StatusTreeComponent {
+export class StatusTreeComponent<T> {
   @Input()
-  public root: StatusTreeNode;
+  public root: StatusTreeNode<T>;
 
   @Input()
   public componentType: any; // component type
 
   @Output()
-  public nodeClick: EventEmitter<StatusTreeNode> = new EventEmitter();
+  public nodeClick: EventEmitter<StatusTreeNode<T>> = new EventEmitter();
 }

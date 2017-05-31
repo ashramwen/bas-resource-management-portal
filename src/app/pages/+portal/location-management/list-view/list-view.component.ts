@@ -48,17 +48,19 @@ import { BRLocationListViewService } from './list-view.service';
 
     .editor-container {
       flex: 1;
+      overflow: auto;
     }
   `],
   providers: [BRLocationListViewService]
 })
 export class BRLocationListViewCmp {
 
-  public nodeRoot: StatusTreeNode = {
+  public nodeRoot: StatusTreeNode<Location> = {
     children: [],
     collapse: true,
     data: null,
-    disabled: false
+    disabled: false,
+    parent: null
   };
 
   public itemCmpType = BRLocationListItemCmp;
@@ -68,6 +70,10 @@ export class BRLocationListViewCmp {
     private _listViewService: BRLocationListViewService,
   ) {
     this._loadData();
+    this._listViewService.currentNodeChanged.subscribe(() => {
+      if (!this._listViewService.currentLocation) { return; }
+      this._expandParent();
+    });
   }
 
   private _loadData() {
@@ -81,16 +87,28 @@ export class BRLocationListViewCmp {
   private _retrivalTree(location: Location) {
     let node = this._createNode(location);
     node.children = location.subLocations.map((l) => this._retrivalTree(l));
+    node.children.forEach((c) => {
+      c.parent = node;
+    });
 
     return node;
   }
 
-  private _createNode(location): StatusTreeNode {
+  private _createNode(location): StatusTreeNode<Location> {
     return {
+      parent: null,
       children: [],
       collapse: true,
       data: location,
       disabled: false
     };
+  }
+
+  private _expandParent() {
+    let parent = this._listViewService.currentNode.parent;
+    while (parent) {
+      parent.collapse = false;
+      parent = parent.parent;
+    }
   }
 }

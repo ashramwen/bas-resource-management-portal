@@ -32,7 +32,11 @@ import { PipesModule } from './pipes/pipes.module';
     BasORMModule,
     PipesModule
   ],
-  exports: [SHARED_MODULES, PipesModule],
+  exports: [
+    SHARED_MODULES,
+    PipesModule,
+    MatCustomModule
+  ],
   declarations: [],
   providers: [...SHARED_PROVIDERS],
 })

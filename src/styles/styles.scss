@@ -63,3 +63,11 @@ nav a {
   -webkit-font-feature-settings: 'liga';
   -webkit-font-smoothing: antialiased;
 }
+
+table.cm-table {
+  tbody {
+    tr:nth-child(even) {
+      background-color: #eee;
+    }
+  }
+}

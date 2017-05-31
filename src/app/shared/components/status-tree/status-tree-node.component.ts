@@ -62,15 +62,15 @@ import { StatusTreeNode } from './status-tree-node.interface';
     }
   `]
 })
-export class StatusTreeNodeComponent {
+export class StatusTreeNodeComponent<T> {
   @Input()
-  public node: StatusTreeNode;
+  public node: StatusTreeNode<T>;
 
   @Input()
-  public siblings: StatusTreeNode[];
+  public siblings: Array<StatusTreeNode<T>>;
 
   @Output()
-  public nodeClick: EventEmitter<StatusTreeNode> = new EventEmitter();
+  public nodeClick: EventEmitter<StatusTreeNode<T>> = new EventEmitter();
 
   @Input()
   public componentType: any; // component type
@@ -84,16 +84,26 @@ export class StatusTreeNodeComponent {
 
   public vlHeight: number = 0;
 
-  public whenCollapseChanged(collapse: boolean) {
-    this.node.collapse = collapse;
-    this.collapseChanged.emit();
-  }
-
   constructor(
     private ele: ElementRef
   ) { }
 
+  public whenCollapseChanged(collapse: boolean) {
+    this.node.collapse = collapse;
+    if (this.node.collapse) {
+      this.closeDecendants(this.node);
+    }
+    this.collapseChanged.emit();
+  }
+
   public childCollapseChanged() {
     this.collapseChanged.emit();
+  }
+
+  private closeDecendants(node: StatusTreeNode<T>) {
+    node.collapse = true;
+    node.children.forEach((c) => {
+      this.closeDecendants(c);
+    });
   }
 }

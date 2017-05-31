@@ -1,7 +1,8 @@
 
-export interface StatusTreeNode {
-  children?: StatusTreeNode[];
+export interface StatusTreeNode<T> {
+  parent?: StatusTreeNode<T>;
+  children?: Array<StatusTreeNode<T>>;
   collapse?: boolean;
-  data?: any;
+  data?: T;
   disabled?: boolean;
 }

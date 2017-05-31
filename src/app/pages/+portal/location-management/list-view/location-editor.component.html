@@ -1,0 +1,93 @@
+<form [formGroup]="editorForm">
+  <p class="location-id">当前节点ID: {{currentLocation?.location || '无'}}</p>
+  <table full-width>
+    <tbody>
+      <tr>
+        <td>
+          <md-input-container full-width>
+            <input mdInput placeholder="父节点" 
+              [value]="(parentLocation | location | async) || '无'" 
+              disabled
+            />
+          </md-input-container>
+        </td>
+        <td>
+          <md-input-container full-width>
+            <input mdInput 
+              placeholder="中文名称" 
+              formControlName="displayNameCN"
+            />
+          </md-input-container>
+        </td>
+        <td>
+          <md-input-container full-width>
+            <input mdInput 
+              placeholder="英文名称" 
+              formControlName="displayNameEN"
+            />
+          </md-input-container>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div>
+    <table full-width>
+      <tbody>
+        <tr>
+          <td full-width>
+            <md-input-container full-width>
+              <input mdInput 
+                placeholder="图层文件"
+                formControlName="layerImage"
+              />
+            </md-input-container>
+          </td>
+          <td>
+            <img class="img-preview" [src]="previewImageUrl" />
+          </td>
+          <td>
+            <button md-raised-button color="primary" [disabled]="editorForm.disabled">上传文件</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <md-tab-group (selectChange)="tabChanged()">
+    <md-tab label="地图">
+      <p class="map-container">
+        <bm-map-view 
+          [locations]="mapLocationInput"
+          [imageLayers]="imageLayers"
+        ></bm-map-view>
+      </p>
+    </md-tab>
+    <md-tab label="数据">
+      <json-editor [options]="editorOptions"></json-editor>
+    </md-tab>
+  </md-tab-group>
+  <p>
+    <button md-raised-button full-width color="primary" [disabled]="editorForm.disabled">更改</button>
+  </p>
+</form>
+<p class="location-id">
+  子位置
+  <button md-icon-button color="primary" (click)="addSubLocation()" *ngIf="!editorForm.disabled">
+    <md-icon>add_circle_outline</md-icon>
+  </button>
+</p>
+<table full-width class="cm-table">
+  <thead>
+    <tr>
+      <th>位置ID</th>
+      <th>位置类型</th>
+      <th>位置名称</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let child of subNodes" (click)="selectNode(child)">
+      <td>{{child.data.location}}</td>
+      <td>{{child.data.locationType.displayNameCN}}</td>
+      <td>{{child.data.displayNameCN}}</td>
+    </tr>
+  </tbody>
+</table>

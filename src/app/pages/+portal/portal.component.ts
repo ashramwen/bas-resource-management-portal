@@ -30,28 +30,6 @@ export class PortalCmp {
 
   public rootSection: NavSection = {
     children: [{
-      icon: 'lightbulb_outline',
-      path: 'light-management',
-      text: 'Lighting',
-      children: [{
-        path: 'light-management/landing',
-        text: 'Landing',
-      }, {
-        path: 'light-management/map-view',
-        text: 'Map',
-      }, {
-        path: 'light-management/device-list',
-        text: 'Device Management',
-      }]
-    }, {
-      icon: 'event',
-      path: 'profile',
-      text: 'Profile',
-      children: [{
-        path: 'profile/calendar',
-        text: 'Calendar',
-      }]
-    }, {
       icon: 'map',
       path: 'location-management',
       text: '位置管理',

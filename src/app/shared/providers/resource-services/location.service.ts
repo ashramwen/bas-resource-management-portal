@@ -3,32 +3,22 @@ import { BasORM } from '../../orm/orm.service';
 import { Location } from '../../models/location.interface';
 import * as _ from 'lodash';
 import { LOCATION_STORAGE } from '../../orm/services/syncronize.service';
+import { LocationType } from '../../models/location-type.interface';
 
 @Injectable()
 export class LocationService {
 
   private _locations: Location[];
   private _root: Location;
+  private _locationTypes: LocationType[];
 
   constructor(
     private _orm: BasORM
   ) { }
 
   public async init() {
-    let queryRunner = await this._orm.connection.driver.createQueryRunner();
-    let query = `select * from location order by location.location`;
-    let result: any[] = await queryRunner.query(query);
-    this._locations = result.map((r) => {
-      let location = new Location();
-      Object.assign(location, r);
-      return location;
-    });
-    this._root = await this.getLocation('.');
-    if (!this._root) {
-      return;
-    }
-    this._root.subLocations = [];
-    this._buildTree(this._root, this._locations.slice(1, this._locations.length));
+    await this._loadLocationType();
+    await this._loadLocationTree();
   }
 
   public get root() {
@@ -120,4 +110,35 @@ export class LocationService {
       }
     }
   };
+
+  private async _loadLocationTree() {
+    let queryRunner = await this._orm.connection.driver.createQueryRunner();
+    let query = `select * from location order by location.location`;
+    let result: any[] = await queryRunner.query(query);
+    this._locations = result.map((r) => {
+      let location = new Location();
+      Object.assign(location, r);
+      location.locationType = this._locationTypes.find((t) =>
+        (location.locationType as any) === t.id
+      );
+      return location;
+    });
+    this._root = await this.getLocation('.');
+    if (!this._root) {
+      return;
+    }
+    this._root.subLocations = [];
+    this._buildTree(this._root, this._locations.slice(1, this._locations.length));
+  }
+
+  private async _loadLocationType() {
+    let queryRunner = await this._orm.connection.driver.createQueryRunner();
+    let query = `select * from locationType order by level`;
+    let result: any[] = await queryRunner.query(query);
+    this._locationTypes = result.map((r) => {
+      let locationType = new LocationType();
+      Object.assign(locationType, r);
+      return locationType;
+    });
+  }
 }

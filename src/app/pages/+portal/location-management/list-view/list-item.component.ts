@@ -46,8 +46,9 @@ export class BRLocationListItemCmp {
     private _comRef: ComponentRef<Location>,
     private _listViewService: BRLocationListViewService,
   ) {
-    this.location = _comRef.data;
+    this.location = _comRef.data.data;
   }
+
   @HostBinding('class.active')
   public get active() {
     return this._listViewService.currentLocation === this.location;
@@ -55,8 +56,7 @@ export class BRLocationListItemCmp {
 
   @HostListener('click')
   public onItemClick() {
-    console.log(this.location);
-    this._listViewService.currentLocation = this.location;
+    this._listViewService.currentNode = this._comRef.data;
   }
 
 }
